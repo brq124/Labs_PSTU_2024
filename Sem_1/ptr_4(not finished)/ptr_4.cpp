@@ -20,6 +20,7 @@ int main()
 			max = *ptr;
 		}
 	}
+	cout << min << " " << max;
 	return 0;
 }
 

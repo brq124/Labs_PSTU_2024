@@ -32,5 +32,6 @@ int main()
 		cout << "Неверный код операции!";
 		break;
 	}
+	return 0;
 }
 

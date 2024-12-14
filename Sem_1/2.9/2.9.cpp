@@ -5,16 +5,17 @@ int main()
 {
 	int N;
 	cin >> N;
+	int h = N / 2;
 
-	for (int i = 0; i < N / 2; i++)
+	for (int i = 0; i < h; i++)
 		cout << " ";
 	for (int i = 0; i < N; i++)
 		cout << "* ";
 	cout << endl;
 
-	for (int i = 0; i < N / 2 - 1; i++)
+	for (int i = 0; i < h - 1; i++)
 	{
-		for (int j = 0; j < N / 2 - 1 - i; j++)
+		for (int j = 0; j < h - 1 - i; j++)
 		{
 			cout << " ";
 		}
@@ -33,29 +34,29 @@ int main()
 
 	for (int i = 0; i < N; i++)
 		cout << "* ";
-	for (int i = 0; i < N / 2 - 2; i++)
+	for (int i = 0; i < h - 2; i++)
 		cout << " ";
 	cout << "*" << endl;
 
-	for (int i = 0; i < N / 2; i++)
+	for (int i = 0; i < h; i++)
 	{
 		cout << "* ";
 		for (int j = 0; j < N - 2; j++)
 			cout << "  ";
 		cout << "*";
 
-		for (int j = 0; j < N / 2 - 1; j++)
+		for (int j = 0; j < h - 1; j++)
 			cout << " ";
 		cout << "*" << endl;
 	}
-	for (int i = 0; i < N / 2; i++)
+	for (int i = 0; i < h; i++)
 	{
 		cout << "* ";
 		for (int j = 0; j < N - 2; j++)
 			cout << "  ";
 		cout << "*";
 
-		for (int j = 0; j < N / 2 - i - 1; j++)
+		for (int j = 0; j < h - i - 1; j++)
 			cout << " ";
 		cout << "*" << endl;
 	}

@@ -38,7 +38,6 @@
 - [x] 2.21
 - [x] 2.22
 - [x] 2.23
-
 - [x] eq_Half
 - [ ] eq_Newton
 - [ ] eq_Iteration

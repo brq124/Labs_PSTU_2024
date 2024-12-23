@@ -12,9 +12,9 @@ int main()
 	while (b - a > e)
 	{
 		c = (a + b) / 2;
-		fa = sqrt(1 - 0.4 * pow(a, 2)) - asin(a);
-		fb = sqrt(1 - 0.4 * pow(b, 2)) - asin(b);
-		fc = sqrt(1 - 0.4 * pow(c, 2)) - asin(c);
+		double fa = sqrt(1 - 0.4 * pow(a, 2)) - asin(a);
+		double fb = sqrt(1 - 0.4 * pow(b, 2)) - asin(b);
+		double fc = sqrt(1 - 0.4 * pow(c, 2)) - asin(c);
 		if (fa * fc < 0) b = c;
 		else if (fb * fc < 0) a = c;
 	}

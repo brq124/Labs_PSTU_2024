@@ -14,7 +14,6 @@ int main()
     int K;
     cout << "¬ведите K в диапазоне [0; " << size - 1 << "]:" << endl;
     cin >> K;
-
     int i = K;
     do
     {
@@ -27,25 +26,23 @@ int main()
     } while (i != K);
     cout << endl;
 
-    int even_count = 0;
-    for (int i = 0; i < size; i++)
-    {
-        if (a[i] % 2 == 0)
-        {
-            even_count++;
-        }
-    }
-    int new_size = even_count + 2;
-    int* b = new int[new_size];
+    int new_size = 12;
+    int b[12];
     cout << "¬ведите первый и последний элементы:" << endl;
     cin >> b[0] >> b[new_size - 1];
-    int k = 1;
-    for (int i = 0; i < size - 1; i++)
+    for (int i = 0; i < size; i++)
     {
-        if (a[i] % 2 == 0)
+        b[i + 1] = a[i];
+    }
+    for (int i = 1; i < new_size - 1; i++)
+    {
+        if (b[i] % 2 != 0)
         {
-            b[k] = a[i];
-            k++;
+            for (int j = i; j < new_size - 1; j++)
+            {
+                b[j] = b[j + 1];
+            }
+            new_size--;
         }
     }
 
@@ -61,7 +58,13 @@ int main()
             i = new_size - 1;
         }
     } while (i != K);
-    delete[] b;
+    /*
+    cout << endl << "============TEST===============================" << endl;
+    for (int i : a) cout << i << " ";
+    cout << endl;
+    for (int i : b) cout << i << " ";
+    cout << "==============" << endl;
+    */
     return 0;
 }
 

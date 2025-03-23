@@ -1,46 +1,28 @@
 #include <iostream>
-#include <string>
 using namespace std;
+
+bool f(char* str, int N);
 
 int main()
 {
     setlocale(LC_ALL, "ru");
-    const int N = 3;
-    std::string s = "725712923";
-    //cout << "Введите строку длиной " << pow(N, 2) << ": ";
-    //getline(cin, s);
-    int mat[N][N];
-    for (int i = 0; i < N; i++)
-    {
-        for (int j = 0; j < N; j++)
-        {
-            mat[i][j] = (int)(s[i * N + j] - '0');
-        }
-    }
-    for (int i = 0; i < N; i++)
-    {
-        for (int j = 0; j < N; j++)
-        {
-            cout << mat[i][j] << ' ';
-        }
-        cout << endl;
-    }
-
-    bool f = true;
-    for (int i = 0; i < N && f; i++)
-    {
-        for (int j = i + 1; j < N; j++)
-        {
-            if (mat[i][0] == mat[j][0])
-            {
-                f = false;
-                break;
-            }
-        }
-    };
-
-    if (f) cout << "Да";
+    const int N = 4;
+    //char s[] = "725612923";
+    char s[] = "7251691761789235";
+    if (f(s, N)) cout << "Да";
     else cout << "Нет";
     return 0;
+}
+
+bool f(char* str, int N) // ,5,62 ,7,82 ,9,82
+{
+    for (int i = 0; i < pow(N, 2); i += N)
+    {
+        for (int j = i + N; j < pow(N, 2); j += N)
+        {
+            if (str[i] == str[j]) return false;
+        }
+    };
+    return true;
 }
 

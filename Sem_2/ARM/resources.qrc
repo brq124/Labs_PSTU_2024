@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/resources">
+        <file>img/logo.png</file>
+        <file>img/arrow_down.jpg</file>
+    </qresource>
+</RCC>

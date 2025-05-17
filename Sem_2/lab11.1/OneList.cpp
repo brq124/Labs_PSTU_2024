@@ -21,6 +21,8 @@ struct List
 	void insert(int pos, const char* Data);
 	void erase(int pos);
 
+
+
 	friend std::ostream& operator<<(std::ostream& os, List& list);
 };
 
@@ -137,17 +139,15 @@ List::Node* List::getAt(int pos) // da
 	else return nullptr;
 }
 
-void List::insert(int pos, const char* Data)
+void List::insert(int pos, const char* Data) // 0 3 5 4
 {
-	if (pos < 0) return;
-	if (pos == 0)
-	{
-		push_front(Data);
-		return;
-	}
-	Node* temp = new Node;
-	Node* left = getAt(pos - 1);
+	Node* left = getAt(pos);
+	if (left == nullptr) return;
+
 	Node* right = left->next_ptr;
+	Node* temp = new Node;
+	temp->setData(Data);
+
 	left->next_ptr = temp;
 	temp->next_ptr = right;
 }
@@ -161,8 +161,6 @@ void List::erase(int pos)
 		return;
 	}
 	Node* left = getAt(pos - 1);
-	if (left == nullptr) return;
-
 	Node* temp = left->next_ptr;
 	if (temp == nullptr) return;
 

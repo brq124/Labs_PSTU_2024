@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <queue>
 using namespace std;
 
 template <class T>
@@ -206,14 +207,14 @@ public:
 		}
 	}
 
-	void DFS(const T& vert)
+	void DFS(const T& vert) // Обход в глубину
 	{
 		bool visited[MAXSIZE]{};
 		DFSUtil(vert, visited);
 	}
 	void DFSUtil(const T& vert, bool* visited)
 	{
-		cout << vert << " ";
+		cout << "Вершина " << vert << " обработана.";
 		int vertpos = GetVertPos(vert);
 		visited[vertpos] = true;
 		vector<T> nboursList = GetNbours(vert);
@@ -226,20 +227,63 @@ public:
 			}
 		}
 	}
+	void BFS(const T& vert) // Обход в глубину
+	{
+		bool visited[MAXSIZE]{};
+		BFSUtil(vert, visited);
+	}
+	void BFSUtil(const T& vert, bool* visited)
+	{
+		queue<T> q;
+		q.push(vert);
+		int vertpos = GetVertPos(vert);
+		visited[vertpos] = true;
+		cout << "Вершина " << vert << " обработана.";
+		while (!q.empty())
+		{
+			T vert = q.front();
+			q.pop();
+			vector<T> nboursList = GetNbours(vert);
+			for (const T& nbourvert : nboursList)
+			{
+				T nbourpos = GetVertPos(nbourvert);
+				if (visited[nbourpos]) continue;
+				q.push(nbourvert);
+				visited[nbourpos] = true;
+				cout << "Вершина " << nbourvert << " обработана.";
+			}
+		}
+	}
+
+	void ReduceMatrix()
+	{
+
+	}
+
+
 };
 
 int main()
 {
 	setlocale(LC_ALL, "ru");
 	Graph<int> graph;
+	graph.InsertVert(1);
 	graph.InsertVert(2);
 	graph.InsertVert(3);
 	graph.InsertVert(4);
-	graph.InsertEdgeDN(2, 3);
-	graph.InsertEdgeDN(2, 4);
-	graph.InsertEdgeDN(3, 4);
-	graph.InsertVert(2);
-	graph.Print();
-	graph.DFS(2);
+	graph.InsertVert(5);
+	graph.InsertVert(6);
+	graph.InsertEdgeDW(1, 3, 13);
+	graph.InsertEdgeDW(1, 4, 15);
+	graph.InsertEdgeDW(2, 1, 28);
+	graph.InsertEdgeDW(2, 4, 20);
+	graph.InsertEdgeDW(3, 5, 30);
+	graph.InsertEdgeDW(4, 6, 31);
+	graph.InsertEdgeUW(4, 5, 39);
+	graph.InsertEdgeDW(5, 2, 21);
+	graph.InsertEdgeDW(6, 1, 18);
+	//graph.Print();
+	graph.DFS(5);
+	graph.BFS(5);
 	return 0;
 }

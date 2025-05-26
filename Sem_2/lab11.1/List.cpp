@@ -1,73 +1,4 @@
-#include <iostream>
-using namespace std;
-
-struct List
-{
-	struct Node
-	{
-		char data[100];
-		Node* next_ptr = nullptr;
-		void setData(const char* Data);
-	};
-
-	Node* head = nullptr, * tail = nullptr;
-
-	void push_back(const char* Data);
-	void push_front(const char* Data);
-	void pop_back();
-	void pop_front();
-
-	Node* getAt(int pos);
-	void insert(int pos, const char* Data);
-	void erase(int pos);
-
-
-
-	friend std::ostream& operator<<(std::ostream& os, List& list);
-};
-
-int main()
-{
-	setlocale(LC_ALL, "ru");
-	List list;
-	int N;
-	cout << list;
-	cout << "Введите количество элементов списка:" << endl;
-	cin >> N;
-	char s[100];
-	for (int i = 1; i <= N; i++)
-	{
-		cout << "Введите " << i << " строку:" << endl;
-
-		//cin.getline(s, 1);
-		cin >> s;
-		list.push_back(s);
-	}
-	cout << "Список: " << list << endl << endl;
-
-	int K, n;
-	cout << "Введите число K:" << endl;
-	cin >> K;
-
-	for (int i = 0; i < K; i++)
-	{
-		cout << "бла бла бла " << endl;
-		cin >> n;
-		list.erase(n);
-	}
-	cout << "Список: " << list << endl;
-
-	for (int i = 1; i <= K; i++)
-	{
-		cout << "Введите " << i << " строку:" << endl;
-
-		//cin.getline(s, 1);
-		cin >> s;
-		list.push_front(s);
-	}
-	cout << "Список: " << list << endl;
-	return 0;
-}
+#include "List.h"
 
 void List::Node::setData(const char* Data)
 {
@@ -152,7 +83,7 @@ void List::insert(int pos, const char* Data) // 0 3 5 4
 	temp->next_ptr = right;
 }
 
-void List::erase(int pos)
+void List::erase(int pos) // yes
 {
 	if (pos < 0) return;
 	if (pos == 0)
@@ -183,3 +114,4 @@ std::ostream& operator<<(std::ostream& os, List& list)
 	os << temp->data;
 	return os;
 }
+

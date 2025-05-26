@@ -44,17 +44,18 @@ void countingSort(int* a, int size)
 	int* temp = new int[temp_size] {};
 	for (int i = 0; i < size; i++)
 	{
-		temp[a[i]-min]++;
+		temp[a[i] - min]++;
 	}
 
 	int i = 0;
 	for (int j = 0; j < temp_size; j++)
 	{
-		for (int k = 0; k < temp[i]; k++)
+		for (int k = 0; k < temp[j]; k++)
 		{
 			a[i] = j + min;
 			i++;
 		}
 	}
+	delete[] temp;
 }
 

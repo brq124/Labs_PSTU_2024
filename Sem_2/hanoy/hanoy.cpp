@@ -7,9 +7,9 @@ void hanoy(int n, char start, char buf, char point) {
         cout << "Диск 1: " << start << " --> " << point << endl;
         return;
     }
-    hanoy(n - 1, start, point, buf);
-    cout << "Диск " << n << ": " << start << " --> " << point << endl;
-    hanoy(n - 1, buf, start, point);
+    hanoy(n - 1, start, point, buf); // hanoy(n - 1, start, buf, point);
+    cout << "Диск " << n << ": " << start << " --> " << buf << endl;
+    hanoy(n - 1, point, start, buf);
 }
 
 int main() {

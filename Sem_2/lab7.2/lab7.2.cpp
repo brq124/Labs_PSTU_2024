@@ -31,3 +31,93 @@ int belong(int R, int n, ...)
     return count;
 };
 
+int sum(int n, int* p, ...)
+{
+    int result = 0;
+    while (n != 0)
+    {
+        result += *p;
+        p++;
+        n--;
+    }
+    return result;
+}
+int sum(int n, ...)
+{
+    va_list p;
+    va_start(p, n);
+    int result = 0;
+    while (n != 0)
+    {
+        result += va_arg(p, int);
+        n--;
+    }
+    va_end(p);
+    return result;
+}
+
+int* bucketSort(int arr[], int n)
+{
+    // для наглядности запишем кол-во ведер
+    // и их размер прямо здесь, хотя их стоит вынести вне функции
+    const int BUCKET_NUM = 10;
+    const int BUCKET_SIZE = 10;
+    int buckets[BUCKET_NUM][BUCKET_SIZE];
+    // чтобы знать реальное число элементов в конкретном ведре и не вылезти за это число
+    int bucketSizes[BUCKET_NUM] = { 0 };
+    // раскидываем элементы массива по ведрам
+    for (int i = 0; i < n; i++)
+    {
+        int bucketIndex = arr[i] / BUCKET_NUM;
+        buckets[bucketIndex][bucketSizes[bucketIndex]] = arr[i];
+        bucketSizes[bucketIndex]++;
+    }
+    // сортируем каждое ведро
+    for (int i = 0; i < BUCKET_NUM; i++)
+    {
+        // берем сортировку вставками или любую другую
+        for (int j = 0; j < bucketSizes[i]; j++)
+        {
+            int tmp = buckets[i][j];
+            int k = j - 1;
+            while (k >= 0 && buckets[i][k] > tmp)
+            {
+                buckets[i][k + 1] = buckets[i][k];
+                k--;
+            }
+            buckets[i][k + 1] = tmp;
+        }
+    }
+    // складываем элементы в исходный массив
+    int idx = 0;
+    for (int i = 0; i < BUCKET_NUM; i++)
+    {
+        for (int j = 0; j < bucketSizes[i]; j++)
+        {
+            arr[idx++] = buckets[i][j];
+        }
+    }
+    return arr;
+}
+
+
+void shellSort(int arr[], int n)
+{
+    for (int h = n / 2; h > 0; h /= 2)
+    {
+        for (int i = h; i < n; i++)
+        {
+            int tmp = arr[i];
+            for (int j = i; j >= h; j-=h)
+            {
+                if (tmp < arr[j - h])
+                {
+                    arr[j] = arr[j - h];
+                }
+                else break;
+            }
+            arr[j] = tmp;
+        }
+    }
+}
+

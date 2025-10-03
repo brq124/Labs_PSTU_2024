@@ -1,0 +1,7 @@
+C:\Users\elifirebrq\Desktop\Labs_PSTU_2024\Sem_3\SetCalculator\bin\Debug\SetCalculator.exe.config
+C:\Users\elifirebrq\Desktop\Labs_PSTU_2024\Sem_3\SetCalculator\bin\Debug\SetCalculator.exe
+C:\Users\elifirebrq\Desktop\Labs_PSTU_2024\Sem_3\SetCalculator\bin\Debug\SetCalculator.pdb
+C:\Users\elifirebrq\Desktop\Labs_PSTU_2024\Sem_3\SetCalculator\obj\Debug\SetCalculator.csproj.AssemblyReference.cache
+C:\Users\elifirebrq\Desktop\Labs_PSTU_2024\Sem_3\SetCalculator\obj\Debug\SetCalculator.csproj.CoreCompileInputs.cache
+C:\Users\elifirebrq\Desktop\Labs_PSTU_2024\Sem_3\SetCalculator\obj\Debug\SetCalculator.exe
+C:\Users\elifirebrq\Desktop\Labs_PSTU_2024\Sem_3\SetCalculator\obj\Debug\SetCalculator.pdb
